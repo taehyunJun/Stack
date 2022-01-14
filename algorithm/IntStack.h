@@ -12,7 +12,13 @@ typedef struct {
 int Initialize(IntStack* s, int max);
 
 //스택에 데이터를 푸시
-int Push(IntStack* s, int x);
+int Push(IntStack* s, int x)
+{
+	if (s->ptr >= s->max)
+		return -1;
+	s->stk[s->ptr++] = x;
+	return 0;
+}
 
 //스택에서 데이터를 팝
 int Pop(IntStack* s, int* x);
